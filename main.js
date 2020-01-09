@@ -3,7 +3,7 @@ const SHA256 = require('crypto-js/sha256');
 
 class Block {
     // Construcción del Bloque
-    constructor(index, data, previousHash = ''){
+    constructor(index, data, previousHash = '0'){
         this.index = index;
         this.date = new Date();
         this.data = data;
@@ -14,7 +14,7 @@ class Block {
 
     // Creación del Hash
     createHash() {
-        return SHA256(this.index + this.date + this.data + this.previousHash + this.nonce).toString();
+        return SHA256(this.index + this.previousHash + this.date + this.data + this.nonce).toString();
     }
 
     // Generación del Minado
