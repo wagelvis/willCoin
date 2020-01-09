@@ -79,7 +79,7 @@ willCoin.addBlock('Valor cotizado en Coinmarket: 250.000 USD');
 willCoin.addBlock('Este es el Último bloque de la cadena');
 
 // Mostramos el contenido del bloque por consola
-console.log(JSON.stringify(willCoin.chain, null, 2));
+console.log(JSON.stringify(willCoin.chain, null, 4));
 
 // Resultado de la Validación de la cadena
 console.log('La cadena de bloques es valida? -> ' +willCoin.isValid() + ': La validación de la cadena es Positiva.');
