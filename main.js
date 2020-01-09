@@ -18,8 +18,8 @@ class Block {
     }
 
     // Generación del Minado
-    mine(difficulty) {
-        while(!this.hash.startsWith(difficulty)) {
+    mineBlock(difficulty) {
+        while (!this.hash.startsWith(difficulty)) {
             this.nonce++;
             this.hash = this.createHash();
         }
@@ -49,7 +49,7 @@ class Blockchain {
         let block = new Block(prevBlock.index + 1, data, prevBlock.hash);
 
         // Agregamos el grado de dificultad de la cadena (que es el problema que tienen que resolver los nodos de la red)
-        block.mine(this.difficulty);
+        block.mineBlock(this.difficulty);
         console.log('Minado! ' +block.hash+ ' con nonce ' +block.nonce);
         this.chain.push(block);
     }
