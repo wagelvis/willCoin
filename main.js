@@ -40,13 +40,13 @@ class Blockchain {
 
     // Último bloque de la cadena
     getLastBlock() {
-        return this.chain[this.chain.length-1];
+        return this.chain[this.chain.length - 1];
     }
 
     // Añadir bloques a la cadena
     addBlock(data) {
         let prevBlock = this.getLastBlock();
-        let block = new Block(prevBlock.index+1, data, prevBlock.hash);
+        let block = new Block(prevBlock.index + 1, data, prevBlock.hash);
 
         // Agregamos el grado de dificultad de la cadena (que es el problema que tienen que resolver los nodos de la red)
         block.mine(this.difficulty);
@@ -82,8 +82,8 @@ willCoin.addBlock('Este es el Último bloque de la cadena');
 console.log(JSON.stringify(willCoin.chain, null, 2));
 
 // Resultado de la Validación de la cadena
-console.log('Validación -> ' +willCoin.isValid() + ': La validación de la cadena es Positiva.');
+console.log('La cadena de bloques es valida? -> ' +willCoin.isValid() + ': La validación de la cadena es Positiva.');
 
 // Tratamos de alterar la cadena
 willCoin.chain[1].data = 'Estoy tratando de alterar la cadena';
-console.log('Validación -> ' +willCoin.isValid() + ': Hubo un intento de alterar la cadena.');
+console.log('La cadena de bloques es valida? -> ' +willCoin.isValid() + ': Alerta! Hubo un intento de alterar la cadena.');
