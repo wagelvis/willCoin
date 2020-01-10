@@ -4,16 +4,16 @@ const Transaction = require('./transactions');
 
 // Creamos la cadena de bloques
 class Blockchain {
-    constructor(genesis, difficulty = '00'){
-        this.chain = [this.createFirstBlock(genesis)];
-        this.difficulty = difficulty;
+    constructor(){
+        this.chain = [this.createFirstBlock()];
+        this.difficulty = 2;
         this.pendingTransactions = [];
         this.miningReward = 100;
     }
 
     // Creando primer bloque de la cadena
-    createFirstBlock(genesis){
-        return new Block(0, genesis);
+    createFirstBlock(){
+        return new Block('10/01/2020', 'Bloque Genesis', '0');
     }
 
     // Último bloque de la cadena
