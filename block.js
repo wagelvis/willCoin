@@ -32,7 +32,6 @@ class Block {
             this.nonce++;
             this.hash = this.createHash();
         }
-        console.log('Bloque Minado' + this.hash);
     }
 }
 

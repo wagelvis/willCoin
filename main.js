@@ -28,7 +28,7 @@ willCoin.minePendingTransactions('willCoin');
 // console.log('Nuestro Balance es: ', willCoin.getBalanceOfAddress('willCoin'));
 // console.log('El Balance de Leo Quintana es: ', willCoin.getBalanceOfAddress('LeoQuintana'));
 
-console.log('Comienza el minado de willCoin ...');
+// console.log('Comienza el minado de willCoin ...');
 willCoin.minePendingTransactions('willCoin');
 
 console.log('El Balance Nuestro es: ', willCoin.getBalanceOfAddress('willCoin'));
