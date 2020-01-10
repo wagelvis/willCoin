@@ -3,7 +3,7 @@ const Block = require('./block');
 const Blockchain = require('./blockchain');
 
 // Generación de los Bloques
-let willCoin = new Blockchain('Este es el primer bloque de la cadena', '00');
+let willCoin = new Blockchain('Este es el primer bloque de la cadena', '0a');
 
 console.log('Minando bloque ...')
 willCoin.addBlock('Esta es la Criptomoneda de Wilmer Hernández');

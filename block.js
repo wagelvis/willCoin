@@ -18,7 +18,7 @@ class Block {
     }
 
     // Generación del Minado.  
-    // La dificultad viene dada por la cantidad de "CEROS" que se agregan al principio del hash y que hay validar antes de poder minar un bloque satisfacoriamente (entre más ceros, la dificutad aumenta).
+    // La dificultad viene dada por la cantidad de "CEROS" que se agregan al principio del hash y que hay validar antes de poder minar un bloque satisfactoriamente (entre más ceros, la dificutad aumenta).
     mineBlock(difficulty) {
         while (!this.hash.startsWith(difficulty)) {
             this.nonce++;

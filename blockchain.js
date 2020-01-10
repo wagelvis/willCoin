@@ -3,7 +3,7 @@ const Block = require('./block');
 
 // Creamos la cadena de bloques
 class Blockchain {
-    constructor(genesis, difficulty = '00'){
+    constructor(genesis, difficulty = '0'){
         this.chain = [this.createFirstBlock(genesis)];
         this.difficulty = difficulty;
     }
