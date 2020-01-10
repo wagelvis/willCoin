@@ -3,13 +3,20 @@ const Block = require('./block');
 const Blockchain = require('./blockchain');
 
 // Generación de los Bloques
-let willCoin = new Blockchain('Este es el primer bloque de la cadena', '0a');
+let willCoin = new Blockchain('Este es el primer bloque de la cadena', '00');
 
+console.log('Minando bloque ...')
 willCoin.addBlock('Esta es la Criptomoneda de Wilmer Hernández');
+console.log('Minando bloque ...')
 willCoin.addBlock('willCoin se cotiza a 10.000.000 CTOs');
+console.log('Minando bloque ...')
 willCoin.addBlock('Valor cotizado en Coinmarket: 250.000 USD');
+console.log('Minando bloque ...')
 willCoin.addBlock({Cantidad_wC: 20});
+console.log('Minando bloque ...')
 willCoin.addBlock('Este es el Último bloque de la cadena');
+
+console.log('Detalle de la Cadena:')
 
 // Mostramos el contenido del bloque por consola
 console.log(JSON.stringify(willCoin.chain, null, 4));
