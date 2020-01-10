@@ -1,11 +1,14 @@
 // Importamos la clase Block
 const Block = require('./block');
+const Transaction = require('./transactions');
 
 // Creamos la cadena de bloques
 class Blockchain {
-    constructor(genesis, difficulty = '0'){
+    constructor(genesis, difficulty = '00'){
         this.chain = [this.createFirstBlock(genesis)];
         this.difficulty = difficulty;
+        this.pendingTransactions = [];
+        this.miningReward = 100;
     }
 
     // Creando primer bloque de la cadena
@@ -19,7 +22,7 @@ class Blockchain {
     }
 
     // Añadir bloques a la cadena
-    addBlock(data) {
+    /* addBlock(data) {
         let prevBlock = this.getLastBlock();
         let block = new Block(prevBlock.index + 1, data, prevBlock.hash);
 
@@ -27,11 +30,46 @@ class Blockchain {
         block.mineBlock(this.difficulty);
         console.log('Minado! ' +block.hash+ ' con nonce ' +block.nonce);
         this.chain.push(block);
+    } */
+
+    addTransaction(transaction) {
+        this.pendingTransactions.push(transaction);
+    }
+
+    minePendingTransactions(addressMiner) {
+        let block = new Block(Date.now(), this.pendingTransactions);
+        block.previousHash = this.getLastBlock().hash;
+        block.mineBlock(this.difficulty);
+
+        console.log('Bloque Minado: ' +block.hash+ ' con nonce ' +block.nonce);
+        console.log('Se ha minado el bloque satisfactoriamente!');
+
+        this.chain.push(block);
+
+        this.pendingTransactions = [
+            new Transaction(null, addressMiner, this.miningReward)
+        ]
+    }
+
+    getBalanceOfAddress(address) {
+        let balance = 0;
+        for (const block of this.chain) {
+            for (const trans of block.transactions) {
+                if (trans.fromAddress === address) {
+                    balance -= trans.amount;
+                }
+
+                if(trans.toAddress === address) {
+                    balance += trans.amount;
+                }
+            }
+        }
+        return balance
     }
 
     // Validación de la Cadena
     isValid() {
-        for(let i=1; i < this.chain.length; i++){
+        for (let i=1; i < this.chain.length; i++){
             let prevBlock = this.chain[i-1];
             let currentBlock = this.chain[i];
 
