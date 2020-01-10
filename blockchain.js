@@ -13,7 +13,7 @@ class Blockchain {
 
     // Creando primer bloque de la cadena
     createFirstBlock(){
-        return new Block('10/01/2020', 'Bloque Genesis', '0');
+        return new Block('10/01/2020', 'Bloque Genesis - Valor Inicial wC: 25.000,00 USD', '0');
     }
 
     // Último bloque de la cadena

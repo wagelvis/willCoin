@@ -21,6 +21,7 @@ console.log('Detalle de la Cadena:') */
 
 willCoin.addTransaction(new Transaction('willCoin', 'LeoQuintana', 10));
 willCoin.addTransaction(new Transaction('LeoQuintana', 'Nico', 1));
+willCoin.addTransaction(new Transaction('Nico', 'Trump', 1));
 
 console.log('Comienza el minado de willCoin ...');
 willCoin.minePendingTransactions('willCoin');
@@ -31,9 +32,10 @@ willCoin.minePendingTransactions('willCoin');
 // console.log('Comienza el minado de willCoin ...');
 willCoin.minePendingTransactions('willCoin');
 
-console.log('El Balance Nuestro es: ', willCoin.getBalanceOfAddress('willCoin'));
-console.log('El Balance de Leo Quintana es: ', willCoin.getBalanceOfAddress('LeoQuintana'));
-console.log('El Balance de Nico es: ', willCoin.getBalanceOfAddress('Nico'));
+console.log('Nuestro Balance es: ', willCoin.getBalanceOfAddress('willCoin'), 'wC');
+console.log('El Balance de Leo es: ', willCoin.getBalanceOfAddress('LeoQuintana'), 'wC');
+console.log('El Balance de Nico es: ', willCoin.getBalanceOfAddress('Nico'), 'wC');
+console.log('El Balance de Trump es: ', willCoin.getBalanceOfAddress('Trump'), 'wC');
 
 // Mostramos el contenido del bloque por consola
 console.log(JSON.stringify(willCoin.chain, null, 4));
@@ -44,4 +46,4 @@ console.log('La cadena de bloques es valida? -> ' +willCoin.isValid() + ': La va
 // Tratamos de alterar la cadena
 willCoin.chain[1].transactions = 'Estoy tratando de alterar la cadena';
 // willCoin.chain[1].hash = willCoin.chain[1].createHash;
-console.log('La cadena de bloques es valida? -> ' +willCoin.isValid() + ': Alerta! Hubo un intento de alterar la cadena.');
+// console.log('La cadena de bloques es valida? -> ' +willCoin.isValid() + ': Alerta! Hubo un intento de alterar la cadena.');
